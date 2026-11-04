@@ -434,10 +434,18 @@ nav.main-nav a:hover, nav.main-nav a.active {
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
 }
 
 .showcase-image img {
   width: 100%;
+  max-height: 580px;
+  object-fit: contain;
+  display: block;
+}
   display: block;
 }
 
