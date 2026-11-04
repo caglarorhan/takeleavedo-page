@@ -163,15 +163,16 @@
       <ul>
         <li><a href="#places-geofence">6. Saved Places & Notifications</a></li>
         <li><a href="#voice-commands">7. Hands-Free Voice Commands</a></li>
-        <li><a href="#wifi-corroboration">8. Wi-Fi + GPS Corroboration</a></li>
+        <li><a href="#reports">8. Reports & Operational Analytics</a></li>
+        <li><a href="#wifi-corroboration">9. Wi-Fi + GPS Corroboration</a></li>
       </ul>
 
       <h4>Power Users & APIs</h4>
       <ul>
-        <li><a href="#web-json-qr">9. Web JSON & QR Import</a></li>
-        <li><a href="#schema-web-import">10. Daily JSON Schema</a></li>
-        <li><a href="#schema-backup">11. Local Backup JSON</a></li>
-        <li><a href="#db-entities">12. Database Entities (v6)</a></li>
+        <li><a href="#web-json-qr">10. Web JSON & QR Import</a></li>
+        <li><a href="#schema-web-import">11. Daily JSON Schema</a></li>
+        <li><a href="#schema-backup">12. Local Backup JSON</a></li>
+        <li><a href="#db-entities">13. Database Entities (v6)</a></li>
       </ul>
     </aside>
 
@@ -215,6 +216,14 @@
       <section id="today-flow-map">
         <h2>2. Flow View & Interactive Map View <span class="badge badge-user">Standard User</span></h2>
         <p>Switch between Timeline and Map mode using the segmented toggle in the top bar:</p>
+        <div style="display: flex; gap: 18px; flex-wrap: wrap; margin: 18px 0;">
+          <div style="max-width: 280px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow);">
+            <img src="assets/img/flows.jpg" alt="Daily Flow Timeline View" style="width: 100%; display: block;" />
+          </div>
+          <div style="max-width: 480px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow);">
+            <img src="assets/img/screenshot_map.png" alt="Interactive Vector Map Route" style="width: 100%; display: block;" />
+          </div>
+        </div>
         <ul>
           <li><strong>Flow Timeline:</strong> Displays all stops for today in chronological order with arrival times, expected durations, and live status badges. Directly check items off cards as you complete them.</li>
           <li><strong>Interactive Vector Map:</strong> Visualizes your daily route with pins color-coded by stop status. Displays your real-time GPS position with a live pulsing <strong>YOU</strong> radar badge.</li>
@@ -281,6 +290,10 @@
       <!-- SECTION 6 -->
       <section id="places-geofence">
         <h2>6. Saved Places & Push Notifications <span class="badge badge-user">Standard User</span></h2>
+        <p>Manage your routine places with custom geofences and OpenStreetMap auto-scanning:</p>
+        <div style="max-width: 320px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow); margin: 18px 0;">
+          <img src="assets/img/places.jpg" alt="Saved Places and Geofence Radiuses" style="width: 100%; display: block;" />
+        </div>
         <p>When you arrive at or depart from a saved geofence, TakeLeaveDo issues high-priority notifications with direct action buttons:</p>
         <table>
           <thead>
@@ -296,10 +309,13 @@
 
       <!-- SECTION 7 -->
       <section id="voice-commands">
-        <h2>7. Hands-Free Voice Commands <span class="badge badge-user">Standard User</span></h2>
+        <h2>7. Hands-Free Voice Commands (Google FunctionGemma) <span class="badge badge-user">Standard User</span></h2>
         <p>
-          Activate voice capture by tapping the microphone icon or saying <em>"Hey TakeLeave"</em> while the screen is awake.
+          Activate voice capture by tapping the microphone icon or saying <em>"Hey TakeLeave"</em> while the screen is awake. Powered by on-device <strong>Google FunctionGemma 270M (LiteRT-LM)</strong>.
         </p>
+        <div style="max-width: 320px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow); margin: 18px 0;">
+          <img src="assets/img/voice_assistant.jpg" alt="Voice Assistant powered by Google FunctionGemma 270M" style="width: 100%; display: block;" />
+        </div>
         <p>
           Our unpunctuated voice engine parses compound requests into scheduled stops and item lists automatically.
         </p>
@@ -313,8 +329,23 @@
       </section>
 
       <!-- SECTION 8 -->
+      <section id="reports">
+        <h2>8. Daily Reports & Operational Analytics <span class="badge badge-user">Standard User</span></h2>
+        <p>Review comprehensive statistics and route performance for any day:</p>
+        <div style="max-width: 320px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow); margin: 18px 0;">
+          <img src="assets/img/report.jpg" alt="Daily Reports and Operational Analytics" style="width: 100%; display: block;" />
+        </div>
+        <ul>
+          <li><strong>Progress & Completion:</strong> Instant visibility into % tasks done, completed stops, and missed appointments.</li>
+          <li><strong>Transit Metrics:</strong> Tracks actual time spent on-site (avg minutes/stop) and total route driving distance in miles/km.</li>
+          <li><strong>Item Auditing:</strong> Separate breakdown for Pick Up (Take) and Drop-Off (Leave) handoffs.</li>
+          <li><strong>History Tab:</strong> Revisit past days to audit arrival logs or copy successful past routines to today with one tap.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 9 -->
       <section id="wifi-corroboration">
-        <h2>8. Dual GPS + Wi-Fi Fingerprinting Corroboration <span class="badge badge-power">Power User</span></h2>
+        <h2>9. Dual GPS + Wi-Fi Fingerprinting Corroboration <span class="badge badge-power">Power User</span></h2>
         <p>
           GPS signals can drift in underground garages or high-rise urban canyons. TakeLeaveDo solves this with hardware-backed Wi-Fi presence corroboration:
         </p>
@@ -325,9 +356,9 @@
         </ul>
       </section>
 
-      <!-- SECTION 9 -->
+      <!-- SECTION 10 -->
       <section id="web-json-qr">
-        <h2>9. Web / API JSON Import & QR Provisioning <span class="badge badge-power">Power User / API</span></h2>
+        <h2>10. Web / API JSON Import & QR Provisioning <span class="badge badge-power">Power User / API</span></h2>
         <p>
           Fleet managers and automated dispatch servers can provision routes with zero typing:
         </p>
@@ -339,9 +370,9 @@
         </ol>
       </section>
 
-      <!-- SECTION 10 -->
+      <!-- SECTION 11 -->
       <section id="schema-web-import">
-        <h2>10. Daily JSON Schema Reference <span class="badge badge-power">JSON Schema</span></h2>
+        <h2>11. Daily JSON Schema Reference <span class="badge badge-power">JSON Schema</span></h2>
         <p>Endpoint payload structure returned for daily route provisioning:</p>
         <pre><code>{
   "userId": "courier_42",
@@ -372,9 +403,9 @@
 }</code></pre>
       </section>
 
-      <!-- SECTION 11 -->
+      <!-- SECTION 12 -->
       <section id="schema-backup">
-        <h2>11. Full Local Backup / Restore JSON <span class="badge badge-power">Data Backup</span></h2>
+        <h2>12. Full Local Backup / Restore JSON <span class="badge badge-power">Data Backup</span></h2>
         <p>
           TakeLeaveDo provides offline database export/import under <strong>Backup & Restore</strong>. The backup JSON includes:
         </p>
@@ -385,9 +416,9 @@
         </ul>
       </section>
 
-      <!-- SECTION 12 -->
+      <!-- SECTION 13 -->
       <section id="db-entities">
-        <h2>12. Database Entities (Room SQLite Schema v6) <span class="badge badge-power">Architecture</span></h2>
+        <h2>13. Database Entities (Room SQLite Schema v6) <span class="badge badge-power">Architecture</span></h2>
         <p>Core local database tables:</p>
         <ul>
           <li><code>places</code>: Saved geofence locations (lat, lng, radius, street address).</li>
