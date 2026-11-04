@@ -439,6 +439,7 @@ nav.main-nav a:hover, nav.main-nav a.active {
   justify-content: center;
   background: var(--bg-card);
   padding: 16px;
+  gap: 14px;
 }
 
 .showcase-image img {
@@ -448,6 +449,16 @@ nav.main-nav a:hover, nav.main-nav a.active {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
   object-fit: contain;
   display: block;
+}
+
+.showcase-image.dual-image {
+  flex-wrap: wrap;
+}
+
+.showcase-image.dual-image img {
+  max-width: calc(50% - 8px);
+  min-width: 190px;
+  max-height: 500px;
 }
 
 /* Call to Action */
