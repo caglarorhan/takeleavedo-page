@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support & Help Center — TakeLeaveDo</title>
+  <meta name="description" content="Support, troubleshooting, and frequently asked questions for TakeLeaveDo Android application." />
+  <link rel="icon" type="image/png" href="assets/img/app_logo.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <img src="assets/img/app_logo.png" alt="TakeLeaveDo Logo" />
+        <span>TakeLeaveDo</span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html#features">Features</a>
+        <a href="docs.html">Documentation</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="support.html" class="active">Support</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme">☀️</button>
+        <a href="index.html" class="btn btn-outline" style="padding: 7px 16px; font-size: 0.88rem;">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <div class="page-header">
+      <h1>Support & Help Center</h1>
+      <p class="meta">Troubleshooting guides, signal diagnostics, and contact resources.</p>
+    </div>
+
+    <div class="page-content">
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>1. Why am I not receiving arrival notifications?</h3>
+      <p>
+        Make sure the following prerequisites are met in Android System Settings:
+      </p>
+      <ul>
+        <li><strong>Location Permission:</strong> Must be set to <em>"Allow all the time"</em> so Android can monitor geofences when the screen is locked or the app is closed.</li>
+        <li><strong>Device Location:</strong> High accuracy device GPS must be switched ON.</li>
+        <li><strong>Battery Optimization:</strong> Exclude TakeLeaveDo from aggressive OEM battery savers (e.g. Samsung Device Care, Xiaomi MIUI Battery Saver) so Android doesn't kill the geofence background receiver.</li>
+        <li><strong>In-App Readiness Diagnostic:</strong> Tap the shield icon in the top toolbar inside the app to view the live diagnostic health of your signal providers.</li>
+      </ul>
+
+      <h3>2. How does the 2-Second Undo work for deleted items?</h3>
+      <p>
+        When you swipe an item or action card to the left, it transitions into a 2-second countdown state showing a progress bar and a bold <strong>UNDO</strong> button. If you accidentally swiped, simply tap <strong>UNDO</strong> to restore it immediately. After 2 seconds elapse without tapping Undo, the item is permanently deleted from the database.
+      </p>
+
+      <h3>3. What voice commands can I speak?</h3>
+      <p>
+        TakeLeaveDo features an advanced unpunctuated voice engine that extracts compound stops and actions in one sentence. For example:
+      </p>
+      <div class="callout-box">
+        <em>"Create a stop at Harbor Freight on next Monday at 3 pm, collect drill set, deliver return invoice, and ask for manager"</em>
+      </div>
+      <p>
+        The app will automatically extract <strong>Harbor Freight</strong> as the stop and place name, schedule it for the specified date and time, and categorize:
+      </p>
+      <ul>
+        <li><strong>Take (Pick up):</strong> Drill set</li>
+        <li><strong>Leave (Drop off):</strong> Return invoice</li>
+        <li><strong>Do (Action):</strong> Ask for manager</li>
+      </ul>
+
+      <h3>4. How do I backup or transfer my stops to another phone?</h3>
+      <p>
+        Open the side drawer in TakeLeaveDo and tap <strong>Backup & Restore</strong>. Tap <strong>Export Full Backup</strong> to save an encrypted JSON file. On your new device, choose <strong>Import Backup</strong> to restore all your places, routines, and historical logs.
+      </p>
+
+      <h2>Need Further Help?</h2>
+      <p>
+        If you encounter bugs, regressions, or have feature suggestions, please visit our open-source project repository:
+      </p>
+      <div style="margin: 24px 0;">
+        <a href="https://github.com/caglarorhan/takeleavedo-page/issues" target="_blank" rel="noopener" class="btn btn-primary">
+          Open a GitHub Issue &rarr;
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="brand" style="margin-bottom: 12px;">
+          <img src="assets/img/app_logo.png" alt="Logo" />
+          <span>TakeLeaveDo</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">
+          Autonomous on-device stop management for Android 10+.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="docs.html">User Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="support.html">Contact & FAQ</a></li>
+          <li><a href="https://github.com/caglarorhan/takeleavedo-page" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 TakeLeaveDo. All rights reserved.</div>
+      <div>Hosted on GitHub Pages</div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

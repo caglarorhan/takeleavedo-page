@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TakeLeaveDo — Smart Location-Aware Stop & Routine Assistant</title>
+  <meta name="description" content="Never forget what to take, leave, or do at any stop. Built for couriers, field workers, and daily commuters with on-device AI voice and geofence reminders." />
+  <link rel="icon" type="image/png" href="assets/img/app_logo.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <img src="assets/img/app_logo.png" alt="TakeLeaveDo Logo" />
+        <span>TakeLeaveDo</span>
+        <span class="tag">Android</span>
+      </a>
+      <nav class="main-nav">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#voice">Voice AI</a>
+        <a href="docs.html">Documentation</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme">☀️</button>
+        <a href="docs.html" class="btn btn-outline" style="padding: 7px 16px; font-size: 0.88rem;">User Guide</a>
+        <a href="https://github.com/caglarorhan/takeleavedo-page" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 7px 16px; font-size: 0.88rem;">GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span>📍 Smart Geofences + Offline AI Voice</span>
+      </div>
+      <h1>Never Forget What to <span class="gradient-text">Take, Leave, or Do</span> at Any Stop.</h1>
+      <p class="lead">
+        The ultimate routine and delivery assistant for Android. Combines precision GPS geofences and Wi-Fi presence corroboration with hands-free on-device voice commands — keeping 100% of your data private on your phone.
+      </p>
+      <div class="hero-buttons">
+        <a href="https://github.com/caglarorhan/takeleavedo-page/releases" class="btn btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Get on Google Play / APK
+        </a>
+        <a href="docs.html" class="btn btn-outline">
+          Read User Guide &rarr;
+        </a>
+      </div>
+      <ul class="hero-features-list">
+        <li>✓ 100% On-Device (No Cloud Tracking)</li>
+        <li>✓ GPS & Wi-Fi Corroboration</li>
+        <li>✓ Slide-to-Delete with 2s Undo</li>
+        <li>✓ Offline Speech Recognition</li>
+      </ul>
+    </div>
+    <div class="hero-mockup">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <img src="assets/img/screenshot_today.png" alt="TakeLeaveDo Today Flow Screen" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Grid -->
+  <section id="features" class="features-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Engineered for Precision & Focus</h2>
+        <p>Whether you're dispatching 30 delivery stops or managing complex daily routines, TakeLeaveDo keeps you on schedule without manual taps.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📦</div>
+          <h3>Take, Leave, Do Checklists</h3>
+          <p>Assign items to <strong>Take</strong> (pick up), <strong>Leave</strong> (drop off), or custom <strong>Do</strong> actions (e.g. "Pay bill", "Ask for manager") for each stop. Automatically tracks cross-stop item handoffs.</p>
+          <div class="pill-list">
+            <span class="pill take">Take (Pick Up)</span>
+            <span class="pill leave">Leave (Drop Off)</span>
+            <span class="pill do">Do (Action)</span>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🛰️</div>
+          <h3>Dual GPS & Wi-Fi Presence</h3>
+          <p>Never suffer from GPS drift inside parking structures or warehouses. TakeLeaveDo matches known BSSID Wi-Fi beacons alongside circular GPS geofences for zero-lag arrival detection.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⏱️</div>
+          <h3>Slide-to-Delete with 2s Undo</h3>
+          <p>Accidentally swiped? Swipe any stop item or action to the left for a smooth 2-second countdown with an instant <strong>UNDO</strong> button before deletion commits to disk.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🎙️</div>
+          <h3>Hands-Free Voice Assistant</h3>
+          <p>Say <em>"Create a stop at Harbor Freight next Monday at 3 pm, collect drill set, deliver invoice, and ask for manager"</em>. Natural, unpunctuated voice parsing powered by on-device Whisper & Gemma.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>100% Privacy by Design</h3>
+          <p>Your routes, notes, addresses, and microphone audio never touch a remote server. Everything is processed locally in an encrypted Room SQLite database on your device.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Fleet JSON & QR Import</h3>
+          <p>Provision an entire day's delivery flow in seconds. Scan a QR code or fetch a daily JSON payload over Wi-Fi with automatic duplicate address matching and conflict checking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase Deep Dives -->
+  <section id="how-it-works" class="showcase-section">
+    <!-- Row 1: Interactive Map & Flow -->
+    <div class="showcase-row">
+      <div class="showcase-text">
+        <h3>Interactive Daily Flow & Map</h3>
+        <p>
+          Switch instantly between a clear chronological timeline and an OpenStreetMap vector route. Stops are color-coded by readiness: Planned (Gray), On Site (Blue), Completed (Emerald Green), or Action Needed (Amber).
+        </p>
+        <p>
+          Automatic time-window conflict validation alerts you if two appointments overlap or if travel times don't allow sufficient buffer.
+        </p>
+        <a href="docs.html#today-flow-map" class="btn btn-outline" style="padding: 8px 18px;">Learn about Flow Views &rarr;</a>
+      </div>
+      <div class="showcase-image">
+        <img src="assets/img/screenshot_map.png" alt="Interactive OpenStreetMap Route View" />
+      </div>
+    </div>
+
+    <!-- Row 2: Voice Command Extraction -->
+    <div class="showcase-row reverse" id="voice">
+      <div class="showcase-text">
+        <h3>On-Device Voice Intelligence</h3>
+        <p>
+          Drive safely with completely hands-free voice capture. Speak naturally without punctuating sentences: the app extracts compound stop destinations, dates, times, and categorizes multiple Take/Leave/Do items automatically.
+        </p>
+        <p>
+          Supports wake-word detection (<em>"Hey TakeLeave"</em>), one-tap app shortcuts, and fast fallback between local regex rules, Whisper ASR, and FunctionGemma.
+        </p>
+        <a href="docs.html#voice-commands" class="btn btn-outline" style="padding: 8px 18px;">Explore Voice Commands &rarr;</a>
+      </div>
+      <div class="showcase-image">
+        <img src="assets/img/screenshot_voice.png" alt="Voice Command Listening Sheet" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Box -->
+  <section class="cta-section">
+    <div class="cta-box">
+      <h2>Ready to Master Your Daily Stops?</h2>
+      <p>Install TakeLeaveDo today. Free, open-source, and guaranteed 100% ad-free with zero telemetry.</p>
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://github.com/caglarorhan/takeleavedo-page/releases" class="btn btn-primary" style="padding: 12px 28px;">
+          Download TakeLeaveDo
+        </a>
+        <a href="docs.html" class="btn btn-outline" style="padding: 12px 24px;">
+          Explore Complete Guide
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="brand" style="margin-bottom: 12px;">
+          <img src="assets/img/app_logo.png" alt="Logo" />
+          <span>TakeLeaveDo</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+          Autonomous on-device stop management, item handoffs, and dual GPS/Wi-Fi geofencing for Android 10+.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="docs.html">User Guide</a></li>
+          <li><a href="docs.html#schema-web-import">API & JSON Sync</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal & Privacy</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html#permissions">Permission Usage</a></li>
+          <li><a href="privacy.html#data-safety">Data Safety</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support & Code</h4>
+        <ul>
+          <li><a href="support.html">Help & FAQ</a></li>
+          <li><a href="https://github.com/caglarorhan/takeleavedo-page" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="https://github.com/caglarorhan/takeleavedo-page/issues" target="_blank" rel="noopener">Report an Issue</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 TakeLeaveDo. Built with on-device privacy principles.</div>
+      <div>Hosted on GitHub Pages</div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

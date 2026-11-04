@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — TakeLeaveDo</title>
+  <meta name="description" content="Privacy Policy for the TakeLeaveDo Android application. 100% on-device data processing, zero telemetry, and complete data sovereignty." />
+  <link rel="icon" type="image/png" href="assets/img/app_logo.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <img src="assets/img/app_logo.png" alt="TakeLeaveDo Logo" />
+        <span>TakeLeaveDo</span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="docs.html">Documentation</a>
+        <a href="privacy.html" class="active">Privacy Policy</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme">☀️</button>
+        <a href="index.html" class="btn btn-outline" style="padding: 7px 16px; font-size: 0.88rem;">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <div class="page-header">
+      <h1>Privacy Policy</h1>
+      <p class="meta">Effective Date: November 4, 2026 &bull; Version 1.0</p>
+    </div>
+
+    <div class="page-content">
+      <div class="callout-box success">
+        <strong>Our Privacy Promise:</strong> TakeLeaveDo is built with privacy-first principles. Your routines, places, tasks, voice recordings, and GPS coordinates are processed and stored strictly on your device. We do not operate tracking servers, we do not require account registration, and we never sell, share, or monetize your personal data.
+      </div>
+
+      <h2>1. Overview & Data Architecture</h2>
+      <p>
+        TakeLeaveDo ("the App", "we", "our") is designed as an autonomous, on-device stop management and reminder utility. The app operates with an offline-first architecture using a local SQLite database (via Android Room). No cloud servers are required to operate the core features of the App.
+      </p>
+
+      <h2 id="permissions">2. Device Permissions & How They Are Used</h2>
+      <p>The App requests specific Android system permissions to deliver its intended core functions:</p>
+
+      <h3>2.1 Location Permissions (Foreground & Background)</h3>
+      <p>
+        <strong>Permissions:</strong> <code>ACCESS_FINE_LOCATION</code>, <code>ACCESS_COARSE_LOCATION</code>, <code>ACCESS_BACKGROUND_LOCATION</code>
+      </p>
+      <ul>
+        <li><strong>Purpose:</strong> To establish circular GPS geofences around your designated stops and places so that you receive automated arrival and departure reminders (e.g. reminding you what items to take or leave when reaching a job site).</li>
+        <li><strong>Background Access Prominent Disclosure:</strong> TakeLeaveDo collects location data in the background even when the app is closed or not in use solely to trigger your automated arrival and departure checklist alerts.</li>
+        <li><strong>On-Device Handling:</strong> All coordinate comparisons and geofence events are evaluated entirely on your phone via the Android Google Play Services Geofencing API. Your location coordinates are never transmitted over the internet or saved to external databases.</li>
+      </ul>
+
+      <h3>2.2 Wi-Fi & Nearby Device Access</h3>
+      <p>
+        <strong>Permissions:</strong> <code>ACCESS_WIFI_STATE</code>, <code>CHANGE_WIFI_STATE</code>, <code>NEARBY_WIFI_DEVICES</code>
+      </p>
+      <ul>
+        <li><strong>Purpose:</strong> To provide secondary presence corroboration indoors or in dense urban areas where GPS signals may drift. The app matches nearby Wi-Fi network hardware identifiers (BSSID) against places you have explicitly designated.</li>
+        <li><strong>Handling:</strong> Wi-Fi scan evidence remains in your device's local memory and database. No network passwords or internet traffic from those Wi-Fi networks are accessed or recorded.</li>
+      </ul>
+
+      <h3>2.3 Audio & Microphone Access</h3>
+      <p>
+        <strong>Permissions:</strong> <code>RECORD_AUDIO</code>, <code>FOREGROUND_SERVICE_MICROPHONE</code>
+      </p>
+      <ul>
+        <li><strong>Purpose:</strong> To allow hands-free voice commands (such as creating stops, adding items, or dictating routine notes) and optional wake-word detection (<em>"Hey TakeLeave"</em>).</li>
+        <li><strong>Handling:</strong> Spoken audio is processed entirely on-device using local offline speech engines (Android SpeechRecognizer, Vosk, or on-device Whisper models). Audio samples are discarded immediately after transcription; your voice recordings are never stored as audio files or sent to remote cloud servers.</li>
+      </ul>
+
+      <h3>2.4 Camera Access</h3>
+      <p>
+        <strong>Permissions:</strong> <code>CAMERA</code>
+      </p>
+      <ul>
+        <li><strong>Purpose:</strong> To scan QR codes containing fleet import URLs or routine configuration payloads.</li>
+        <li><strong>Handling:</strong> The camera is accessed only while the QR scanner viewfinder dialog is visibly open. No photos or video frames are captured, stored, or uploaded.</li>
+      </ul>
+
+      <h3>2.5 Notifications</h3>
+      <p>
+        <strong>Permissions:</strong> <code>POST_NOTIFICATIONS</code>
+      </p>
+      <ul>
+        <li><strong>Purpose:</strong> To post actionable arrival, departure, and reminder notifications when reaching scheduled stops.</li>
+      </ul>
+
+      <h2 id="data-safety">3. Google Play Data Safety Summary</h2>
+      <table style="width: 100%; border-collapse: collapse; margin: 20px 0; border: 1px solid var(--border);">
+        <thead>
+          <tr style="background: var(--bg-card); text-align: left;">
+            <th style="padding: 12px; border: 1px solid var(--border);">Data Type</th>
+            <th style="padding: 12px; border: 1px solid var(--border);">Collected?</th>
+            <th style="padding: 12px; border: 1px solid var(--border);">Shared with 3rd Parties?</th>
+            <th style="padding: 12px; border: 1px solid var(--border);">Purpose & Storage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 12px; border: 1px solid var(--border);">Location (Precise & Coarse)</td>
+            <td style="padding: 12px; border: 1px solid var(--border);">Yes (Local only)</td>
+            <td style="padding: 12px; border: 1px solid var(--border);"><strong>No</strong> (0% shared)</td>
+            <td style="padding: 12px; border: 1px solid var(--border);">App functionality (geofence alerts). Processed on-device.</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border: 1px solid var(--border);">Voice / Audio Recordings</td>
+            <td style="padding: 12px; border: 1px solid var(--border);">Yes (Ephemeral)</td>
+            <td style="padding: 12px; border: 1px solid var(--border);"><strong>No</strong> (0% shared)</td>
+            <td style="padding: 12px; border: 1px solid var(--border);">Voice command transcription. Processed on-device and discarded immediately.</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border: 1px solid var(--border);">Photos & Videos</td>
+            <td style="padding: 12px; border: 1px solid var(--border);">No</td>
+            <td style="padding: 12px; border: 1px solid var(--border);"><strong>No</strong></td>
+            <td style="padding: 12px; border: 1px solid var(--border);">Camera stream parsed locally in-memory for QR codes only.</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border: 1px solid var(--border);">Personal Identifiers</td>
+            <td style="padding: 12px; border: 1px solid var(--border);">No</td>
+            <td style="padding: 12px; border: 1px solid var(--border);"><strong>No</strong></td>
+            <td style="padding: 12px; border: 1px solid var(--border);">No account creation, email, or telephone number required.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>4. Third-Party Services & Network Requests</h2>
+      <p>
+        The App performs network communication solely for user-initiated features:
+      </p>
+      <ul>
+        <li><strong>OpenStreetMap / Nominatim:</strong> Used when searching for addresses or displaying map tiles over secure HTTPS. No personal identifying information is transmitted beyond the search query.</li>
+        <li><strong>User-Configured JSON Import:</strong> If you scan a QR code or enter a custom URL to import a fleet schedule, the App downloads that JSON file directly from your designated server.</li>
+        <li><strong>Optional AI Models:</strong> On-device voice and language models (e.g. Whisper, Gemma) are downloaded once directly from verified repositories (such as Hugging Face) over HTTPS and stored in local app storage.</li>
+      </ul>
+
+      <h2>5. User Data Control & Deletion</h2>
+      <p>
+        Because all data is stored exclusively on your device, you maintain 100% control over your information at all times:
+      </p>
+      <ul>
+        <li><strong>Export Backup:</strong> You can export a full JSON backup of your places and flows at any time from the in-app Backup screen.</li>
+        <li><strong>Revoke Permissions:</strong> You can revoke location, microphone, or camera permissions at any time via Android System Settings.</li>
+        <li><strong>Complete Deletion:</strong> You can delete any place or stop directly within the app. Clearing app storage or uninstalling the app permanently purges all databases, cached audio, and diagnostic logs from your device.</li>
+      </ul>
+
+      <h2>6. Children's Privacy</h2>
+      <p>
+        TakeLeaveDo is intended for general audiences, couriers, and daily task management. We do not knowingly collect personal data from children under the age of 13.
+      </p>
+
+      <h2>7. Updates to This Policy</h2>
+      <p>
+        If we update this Privacy Policy, the revised version will be published at this URL with an updated effective date.
+      </p>
+
+      <h2>8. Contact & Developer Information</h2>
+      <p>
+        If you have questions, feedback, or inquiries regarding this Privacy Policy or data handling in TakeLeaveDo, please reach out to us:
+      </p>
+      <ul>
+        <li><strong>Developer:</strong> Caglar Orhan</li>
+        <li><strong>Project Repository:</strong> <a href="https://github.com/caglarorhan/takeleavedo-page" target="_blank" rel="noopener">github.com/caglarorhan/takeleavedo-page</a></li>
+        <li><strong>Support & Issues:</strong> <a href="https://github.com/caglarorhan/takeleavedo-page/issues" target="_blank" rel="noopener">GitHub Issues Tracker</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="brand" style="margin-bottom: 12px;">
+          <img src="assets/img/app_logo.png" alt="Logo" />
+          <span>TakeLeaveDo</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">
+          Autonomous on-device stop management for Android 10+.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="docs.html">User Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="support.html">Contact & FAQ</a></li>
+          <li><a href="https://github.com/caglarorhan/takeleavedo-page" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 TakeLeaveDo. All rights reserved.</div>
+      <div>Hosted on GitHub Pages</div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

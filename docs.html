@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Guide & Technical Reference — TakeLeaveDo</title>
+  <meta name="description" content="Comprehensive User Guide, Voice Commands Manual, and Web/API JSON specifications for TakeLeaveDo." />
+  <link rel="icon" type="image/png" href="assets/img/app_logo.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* Docs specific layout */
+    .docs-layout {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 36px;
+      padding: 32px 24px 80px;
+    }
+    aside.docs-sidebar {
+      position: sticky;
+      top: 80px;
+      height: calc(100vh - 100px);
+      overflow-y: auto;
+      padding-right: 12px;
+    }
+    .docs-sidebar h4 {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-dim);
+      margin: 18px 0 8px;
+    }
+    .docs-sidebar ul {
+      list-style: none;
+      margin-bottom: 12px;
+    }
+    .docs-sidebar li a {
+      display: block;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .docs-sidebar li a:hover {
+      background: var(--bg-card);
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .docs-content section {
+      margin-bottom: 56px;
+      scroll-margin-top: 90px;
+    }
+    .docs-content h2 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .docs-content h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin: 28px 0 12px;
+      color: var(--text-main);
+    }
+    .docs-content p {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .docs-content ul, .docs-content ol {
+      color: var(--text-muted);
+      margin: 0 0 18px 24px;
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+    .docs-content li { margin-bottom: 6px; }
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      vertical-align: middle;
+      margin-left: 8px;
+    }
+    .badge-user { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid #38bdf8; }
+    .badge-power { background: rgba(168, 85, 247, 0.2); color: #a855f7; border: 1px solid #a855f7; }
+    .badge-warn { background: rgba(245, 158, 11, 0.2); color: #f59e0b; border: 1px solid #f59e0b; }
+    .badge-block { background: rgba(239, 68, 68, 0.2); color: #ef4444; border: 1px solid #ef4444; }
+    pre {
+      background: var(--bg-code);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      overflow-x: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: #38bdf8;
+      margin: 16px 0 24px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      border: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+    th, td {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    th { background: var(--bg-card); color: var(--text-main); }
+    @media (max-width: 860px) {
+      .docs-layout { grid-template-columns: 1fr; }
+      aside.docs-sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <img src="assets/img/app_logo.png" alt="TakeLeaveDo Logo" />
+        <span>TakeLeaveDo</span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="#overview">Three Pillars</a>
+        <a href="#swipe-undo">Slide & Undo</a>
+        <a href="#voice-commands">Voice AI</a>
+        <a href="#wifi-corroboration">Wi-Fi & GPS</a>
+        <a href="#schema-web-import">API & JSON</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme">☀️</button>
+        <a href="index.html" class="btn btn-outline" style="padding: 7px 16px; font-size: 0.88rem;">Home</a>
+        <a href="privacy.html" class="btn btn-outline" style="padding: 7px 16px; font-size: 0.88rem;">Privacy</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="docs-layout">
+    <!-- Sidebar -->
+    <aside class="docs-sidebar">
+      <h4>Getting Started</h4>
+      <ul>
+        <li><a href="#overview">1. Overview & Three Pillars</a></li>
+        <li><a href="#today-flow-map">2. Flow & Map Views</a></li>
+        <li><a href="#stops-conflicts">3. Adding Stops & Conflicts</a></li>
+        <li><a href="#swipe-undo">4. Slide-to-Delete (2s Undo)</a></li>
+        <li><a href="#checklists-handoff">5. Checklists & Handoffs</a></li>
+      </ul>
+
+      <h4>Location & Voice</h4>
+      <ul>
+        <li><a href="#places-geofence">6. Saved Places & Notifications</a></li>
+        <li><a href="#voice-commands">7. Hands-Free Voice Commands</a></li>
+        <li><a href="#wifi-corroboration">8. Wi-Fi + GPS Corroboration</a></li>
+      </ul>
+
+      <h4>Power Users & APIs</h4>
+      <ul>
+        <li><a href="#web-json-qr">9. Web JSON & QR Import</a></li>
+        <li><a href="#schema-web-import">10. Daily JSON Schema</a></li>
+        <li><a href="#schema-backup">11. Local Backup JSON</a></li>
+        <li><a href="#db-entities">12. Database Entities (v6)</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Docs Content -->
+    <main class="docs-content">
+      <!-- SECTION 1 -->
+      <section id="overview">
+        <h2>1. Overview & The Three Pillars <span class="badge badge-user">Standard User</span></h2>
+        <p>Every stop in TakeLeaveDo is organized around three clear, actionable buckets:</p>
+        <div class="features-grid" style="margin-bottom: 24px;">
+          <div class="feature-card" style="padding: 20px;">
+            <h3>1. TAKE (Pick Up) <code>PICKUP_BRING</code></h3>
+            <p>Items you must <strong>pick up or take with you</strong> from this stop (e.g. <em>Laptop, Packages, Keys</em>). Checking an item here moves it into your <strong>In-Transit Carrying</strong> inventory.</p>
+          </div>
+          <div class="feature-card" style="padding: 20px;">
+            <h3>2. LEAVE (Drop Off) <code>DROP_OFF_LEAVE</code></h3>
+            <p>Items you must <strong>leave, deliver, or hand off</strong> at this stop. Items previously picked up at earlier stops can be selected and marked delivered here.</p>
+          </div>
+          <div class="feature-card" style="padding: 20px;">
+            <h3>3. DO (Actions) <code>DO_HERE</code></h3>
+            <p>Tasks or custom actions you must <strong>perform at the location</strong> (e.g. <em>Scan receipt, Collect signature, Pay bill</em>).</p>
+          </div>
+        </div>
+
+        <h3>Stop Status Lifecycle</h3>
+        <table>
+          <thead>
+            <tr><th>Status</th><th>Badge</th><th>When It Happens</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>PLANNED</code></td><td>Planned</td><td>Stop is scheduled for a future time window today.</td></tr>
+            <tr><td><code>CURRENT</code></td><td>Current</td><td>You are physically inside the geofence (or active window). <strong>Only one stop can be CURRENT at a time.</strong></td></tr>
+            <tr><td><code>COMPLETED</code></td><td>Done</td><td>You visited the stop and completed <strong>all</strong> Take, Leave, and Do checklist items.</td></tr>
+            <tr><td><code>PARTIAL</code></td><td>Partial</td><td>You visited the stop and completed some items before departing.</td></tr>
+            <tr><td><code>MISSED</code></td><td>Missed</td><td>The planned time window ended without an on-site visit.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="today-flow-map">
+        <h2>2. Flow View & Interactive Map View <span class="badge badge-user">Standard User</span></h2>
+        <p>Switch between Timeline and Map mode using the segmented toggle in the top bar:</p>
+        <ul>
+          <li><strong>Flow Timeline:</strong> Displays all stops for today in chronological order with arrival times, expected durations, and live status badges. Directly check items off cards as you complete them.</li>
+          <li><strong>Interactive Vector Map:</strong> Visualizes your daily route with pins color-coded by stop status. Displays your real-time GPS position with a live pulsing <strong>YOU</strong> radar badge.</li>
+          <li><strong>Multi-Visit Same-Place Grouping:</strong> When multiple stops occur at the same physical place throughout the day (e.g. Stop #1 morning depot pickup and Stop #5 afternoon return), the map merges them into a single non-overlapping marker box with multi-badge indicators (<code>1</code> <code>5</code>).</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="stops-conflicts">
+        <h2>3. Adding Stops & Time-Window Conflict Validation <span class="badge badge-user">Standard User</span></h2>
+        <p>When you tap <strong>+ Add Stop</strong>, TakeLeaveDo automatically calculates a realistic arrival time defaulting to <strong>15 minutes after the previous stop's departure</strong>.</p>
+
+        <h3>Three-Tier Time Conflict Protection</h3>
+        <table>
+          <thead>
+            <tr><th>Conflict Level</th><th>Condition</th><th>App Behavior</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>EXACT_MATCH</code> <span class="badge badge-block">Hard Block</span></td>
+              <td>Exact identical start and end time window as an existing stop (e.g. both <code>10:00 - 10:30</code>).</td>
+              <td><strong>Prevents saving.</strong> Requires selecting an alternate time window to avoid scheduling impossibilities.</td>
+            </tr>
+            <tr>
+              <td><code>PARTIAL_OVERLAP</code> <span class="badge badge-warn">Warning</span></td>
+              <td>Stop's window overlaps another stop (e.g. Stop 1 is <code>10:00 - 10:30</code>, Stop 2 is <code>10:15 - 10:45</code>).</td>
+              <td>Displays a conflict warning modal highlighting the overlapping minutes before allowing you to adjust or confirm.</td>
+            </tr>
+            <tr>
+              <td><code>INSUFFICIENT_BUFFER</code> <span class="badge badge-warn">Notice</span></td>
+              <td>Gap between departure and next arrival is under 15 minutes.</td>
+              <td>Warns you that transit buffer may be tight.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- SECTION 4: SLIDE TO DELETE & UNDO -->
+      <section id="swipe-undo">
+        <h2>4. Slide-to-Delete with 2-Second Grace Period & Undo <span class="badge badge-user">Standard User</span></h2>
+        <p>
+          Following modern mobile ergonomics, you can quickly remove any item or action from a stop with a simple swipe gesture:
+        </p>
+        <ul>
+          <li><strong>Swipe Left:</strong> Slide the item card to the left to reveal the red Delete background.</li>
+          <li><strong>2-Second Grace Period:</strong> Upon releasing, the card transitions into an inline pending-deletion row displaying a countdown timer and a depleting progress bar (<em>"Removing in 2s..."</em>).</li>
+          <li><strong>Instant Undo:</strong> Tap <strong>UNDO</strong> to immediately cancel deletion and restore the card without modifying the database.</li>
+          <li><strong>Commit:</strong> If 2 seconds elapse without tapping Undo, the item is deleted from the Room database, and stop completion statuses update automatically.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="checklists-handoff">
+        <h2>5. Checklists & Cross-Stop Item Handoffs <span class="badge badge-user">Standard User</span></h2>
+        <p>
+          Tap <strong>Manage Checklist</strong> on any stop to open the full checklist editor. The app tracks inventory items across stops:
+        </p>
+        <ul>
+          <li><strong>Pick Up (Take):</strong> Items checked here transition to <code>PICKED_UP_IN_TRANSIT</code>.</li>
+          <li><strong>Drop Off (Leave):</strong> Displays a dedicated <strong>"Items Picked Up at Earlier Stops"</strong> selector. Tapping an in-transit item automatically pairs it to this stop for drop-off verification.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="places-geofence">
+        <h2>6. Saved Places & Push Notifications <span class="badge badge-user">Standard User</span></h2>
+        <p>When you arrive at or depart from a saved geofence, TakeLeaveDo issues high-priority notifications with direct action buttons:</p>
+        <table>
+          <thead>
+            <tr><th>Notification Button</th><th>Behavior</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Open Checklist</strong></td><td>Launches directly into that stop's active checklist to verify items.</td></tr>
+            <tr><td><strong>Snooze (5m)</strong></td><td>Re-alerts you in 5 minutes (ideal while parking or walking inside).</td></tr>
+            <tr><td><strong>When Stopped</strong></td><td>Postpones alerts until vehicle motion sensors detect you have parked.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="voice-commands">
+        <h2>7. Hands-Free Voice Commands <span class="badge badge-user">Standard User</span></h2>
+        <p>
+          Activate voice capture by tapping the microphone icon or saying <em>"Hey TakeLeave"</em> while the screen is awake.
+        </p>
+        <p>
+          Our unpunctuated voice engine parses compound requests into scheduled stops and item lists automatically.
+        </p>
+        <div class="callout-box">
+          <strong>Example Utterances:</strong><br />
+          &bull; <em>"Create a stop at Harbor Freight on next Monday at 3 pm, collect drill set, deliver return invoice, and ask for manager"</em><br />
+          &bull; <em>"Add stop Sunrise Cafe tomorrow at 10 am for 30 minutes, pick up menu boxes, and do pay invoice"</em><br />
+          &bull; <em>"What is my next stop?"</em><br />
+          &bull; <em>"Mark drill set done"</em>
+        </div>
+      </section>
+
+      <!-- SECTION 8 -->
+      <section id="wifi-corroboration">
+        <h2>8. Dual GPS + Wi-Fi Fingerprinting Corroboration <span class="badge badge-power">Power User</span></h2>
+        <p>
+          GPS signals can drift in underground garages or high-rise urban canyons. TakeLeaveDo solves this with hardware-backed Wi-Fi presence corroboration:
+        </p>
+        <ul>
+          <li><strong>Hardware Keystore AES-GCM Encryption:</strong> Wi-Fi BSSID access point fingerprints are encrypted on-device.</li>
+          <li><strong>Arrival Corroboration:</strong> Detecting a saved place's Wi-Fi network triggers arrival immediately even if GPS accuracy is degraded.</li>
+          <li><strong>Indoor Hold:</strong> As long as your phone is connected to the place's Wi-Fi beacon, the app suppresses false GPS exit triggers.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 9 -->
+      <section id="web-json-qr">
+        <h2>9. Web / API JSON Import & QR Provisioning <span class="badge badge-power">Power User / API</span></h2>
+        <p>
+          Fleet managers and automated dispatch servers can provision routes with zero typing:
+        </p>
+        <ol>
+          <li>Open <strong>Settings</strong> &rarr; Enable <strong>Web / API JSON Import</strong>.</li>
+          <li>Tap the <strong>QR Code icon</strong> to scan an endpoint URL (e.g. <code>https://api.yourfleet.com/v1/flow?driver=42</code>).</li>
+          <li>On app launch or manual refresh, the app issues an HTTPS <code>GET</code> request with <code>?date=YYYY-MM-DD</code>.</li>
+          <li>Stops and places are atomically populated with duplicate suppression.</li>
+        </ol>
+      </section>
+
+      <!-- SECTION 10 -->
+      <section id="schema-web-import">
+        <h2>10. Daily JSON Schema Reference <span class="badge badge-power">JSON Schema</span></h2>
+        <p>Endpoint payload structure returned for daily route provisioning:</p>
+        <pre><code>{
+  "userId": "courier_42",
+  "date": "2026-11-04",
+  "syncNumber": "20261104-001",
+  "hashCode": "f8a2b3c4d5e67890",
+  "places": [
+    {
+      "id": "PLC-001",
+      "name": "Harbor Freight Logistics",
+      "address": "1200 Industrial Pkwy",
+      "latitude": 32.7767,
+      "longitude": -96.7970,
+      "radiusMeters": 100.0,
+      "iconName": "work"
+    }
+  ],
+  "stops": [
+    {
+      "placeId": "PLC-001",
+      "plannedArrivalTime": "15:00",
+      "expectedDurationMinutes": 30,
+      "pickUp": ["Drill set #4", "Safety goggles"],
+      "dropOff": ["Return invoice"],
+      "do": ["Ask for floor manager"]
+    }
+  ]
+}</code></pre>
+      </section>
+
+      <!-- SECTION 11 -->
+      <section id="schema-backup">
+        <h2>11. Full Local Backup / Restore JSON <span class="badge badge-power">Data Backup</span></h2>
+        <p>
+          TakeLeaveDo provides offline database export/import under <strong>Backup & Restore</strong>. The backup JSON includes:
+        </p>
+        <ul>
+          <li><code>version</code>: Schema version integer (e.g. <code>6</code>)</li>
+          <li><code>exportedAt</code>: ISO-8601 UTC timestamp</li>
+          <li><code>places[]</code>, <code>flows[]</code>, <code>stops[]</code>, <code>entries[]</code>, <code>wifiFingerprints[]</code></li>
+        </ul>
+      </section>
+
+      <!-- SECTION 12 -->
+      <section id="db-entities">
+        <h2>12. Database Entities (Room SQLite Schema v6) <span class="badge badge-power">Architecture</span></h2>
+        <p>Core local database tables:</p>
+        <ul>
+          <li><code>places</code>: Saved geofence locations (lat, lng, radius, street address).</li>
+          <li><code>daily_flows</code>: Flow container for a specific date (<code>YYYY-MM-DD</code>).</li>
+          <li><code>flow_stops</code>: Stops within a flow (references <code>placeId</code>, planned arrival, actual arrival, status).</li>
+          <li><code>flow_entries</code>: Individual items (<code>type</code>: PICKUP_BRING, DROP_OFF_LEAVE, DO_HERE).</li>
+          <li><code>place_wifi_fingerprints</code>: Encrypted Wi-Fi BSSID records.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="brand" style="margin-bottom: 12px;">
+          <img src="assets/img/app_logo.png" alt="Logo" />
+          <span>TakeLeaveDo</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">
+          Autonomous on-device stop management for Android 10+.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="docs.html">User Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="support.html">Contact & FAQ</a></li>
+          <li><a href="https://github.com/caglarorhan/takeleavedo-page" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 TakeLeaveDo. All rights reserved.</div>
+      <div>Hosted on GitHub Pages</div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
