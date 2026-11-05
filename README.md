@@ -1,6 +1,6 @@
-# TakeLeaveDo Official Web & User Guide
+# TakeLeaveDo: Stop Checklist — Official Web & User Guide
 
-Official web landing page, documentation, and privacy compliance portal for **TakeLeaveDo** — the smart location-aware stop & routine assistant for Android.
+Official web landing page, documentation, and privacy compliance portal for **TakeLeaveDo: Stop Checklist** — the smart location-aware stop & routine assistant for Android.
 
 Hosted live on GitHub Pages:
 [https://caglarorhan.github.io/takeleavedo-page/](https://caglarorhan.github.io/takeleavedo-page/)
